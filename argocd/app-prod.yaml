@@ -8,9 +8,10 @@ spec:
   source:
     repoURL: https://github.com/balusena/argocd-helm-kustomize.git
     targetRevision: HEAD
-    path: overlays/prod
-    directory:
-      recurse: true
+    path: helm/myapp
+    helm:
+      valueFiles:
+        - ../../overlays/prod/values-prod.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: prod-myapp
