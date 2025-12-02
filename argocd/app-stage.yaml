@@ -8,9 +8,10 @@ spec:
   source:
     repoURL: https://github.com/balusena/argocd-helm-kustomize.git
     targetRevision: HEAD
-    path: overlays/stage
-    directory:
-      recurse: true
+    path: helm/myapp
+    helm:
+      valueFiles:
+        - ../../overlays/stage/values-stage.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: stage-myapp
@@ -19,4 +20,4 @@ spec:
       prune: true
       selfHeal: true
     syncOptions:
-      - CreateNamespace=true         
+      - CreateNamespace=true
