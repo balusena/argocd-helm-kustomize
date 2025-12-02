@@ -8,7 +8,7 @@ helmCharts:
   - name: myapp
     releaseName: myapp
     version: 0.1.0
-    path: ../../helm/myapp
+    chartPath: ../../helm/myapp
     valuesFiles:
       - values-prod.yaml
     includeCRDs: false
